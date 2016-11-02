@@ -9,6 +9,7 @@ import java.awt.event.*;
  * Created by miked on 10/25/2016.
  */
 public class AgileWaterfallGUIform extends JFrame{
+    //components for GUI form
     private JCheckBox CB1;
     private JCheckBox CB2;
     private JCheckBox CB3;
@@ -20,11 +21,11 @@ public class AgileWaterfallGUIform extends JFrame{
     private JPanel rootPanel;
 
 
-    private boolean A1, A2, A3, A4, A5, A6;
-    int agile = 0;
-    int waterfall = 0;
-
-    public AgileWaterfallGUIform(){
+   //counters for point system to determine which method is better
+    private int agile = 0;
+    private int waterfall = 0;
+    // GUI form
+    private AgileWaterfallGUIform(){
         super("Agile waterfall GUI");
         setContentPane(rootPanel);
         pack();
@@ -34,7 +35,7 @@ public class AgileWaterfallGUIform extends JFrame{
 
 
 
-
+        //when the recommend button is clicked reset the results and display the new ones
         recommendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,11 +46,13 @@ public class AgileWaterfallGUIform extends JFrame{
         });
 
     }
-
+    //reset results method, resets counters
     private void resetResults() {
         agile = 0;
         waterfall = 0;
     }
+    //this is ugly but I lost my component tree when I had it like this and dont want
+    //to mess anything up.
     private void displayResults() {
         if (CB1.isSelected()) {
             waterfall += 2;
